@@ -53,8 +53,6 @@ public class Card {
     public String toString() {
         return "Card{" +
                 "cardNumber='" + cardNumber + '\'' +
-                ", cardCVV='" + cardCVV + '\'' +
-                ", cardValidTill='" + cardValidTill + '\'' +
                 ", balance=" + balance +
                 '}';
     }

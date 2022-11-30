@@ -8,7 +8,7 @@ public class CardErrorAnswer {
 
     public CardErrorAnswer(String message) {
         this.message = message;
-        this.id = new Random().nextInt(0,1000);
+        this.id = new Random().nextInt(0, 1000);
     }
 
     public String getMessage() {

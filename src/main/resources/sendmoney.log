@@ -1,0 +1,56 @@
+Tue Nov 29 13:38:24 MSK 2022 -- Start to check & do operation between cards: Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=1000000}, cardToNumber='2222222222222222'}
+Tue Nov 29 13:38:26 MSK 2022 -- Start to check & do operation between cards: Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000}, cardToNumber='2222222222222222'}
+Tue Nov 29 13:38:32 MSK 2022 -- Rabotaet confirm ConfirmOperation{operationId=88888888, code=0000}
+Tue Nov 29 17:19:42 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=20000, comissionPercent=1}, cardToNumber='2222222222222222'}
+Tue Nov 29 17:19:42 MSK 2022 -- Transaction OK! 1111111111111111 balance 79800, 2222222222222222 balance 120000
+Tue Nov 29 17:19:42 MSK 2022 -- Rabotaet confirm ConfirmOperation{operationId=88888888, code=0000}
+Wed Nov 30 10:16:03 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:16:04 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:16:48 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:16:48 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:16:48 MSK 2022 -- Rabotaet confirm ConfirmOperation{operationId=d8fb0b4b-d2f3-4c13-b350-56e5380310c5, code=0000}
+Wed Nov 30 10:21:15 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:21:15 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:21:27 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:21:27 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:23:59 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:23:59 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:23:59 MSK 2022 -- Rabotaet confirm ConfirmOperation{operationId=null, code=0000}
+Wed Nov 30 10:26:50 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:26:50 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:26:50 MSK 2022 -- Rabotaet confirm ConfirmOperation{operationId=88888888, code=0000}
+Wed Nov 30 10:48:23 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:48:23 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:50:17 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=0}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:50:17 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:57:33 MSK 2022 -- Начало работы с транзакцией!
+Wed Nov 30 10:57:33 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=100}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:57:33 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:59:28 MSK 2022 -- Начало работы с транзакцией!
+Wed Nov 30 10:59:28 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=40000, comission=400}, cardToNumber='2222222222222222'}
+Wed Nov 30 10:59:29 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 10:59:29 MSK 2022 -- Rabotaet confirm ConfirmOperation{operationId=72beee43-2bc4-4ffe-a515-ff6b5599e5f1, code=0000}
+Wed Nov 30 11:13:50 MSK 2022 -- > Begin transaction!
+Wed Nov 30 11:13:51 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=100}, cardToNumber='2222222222222222'}
+Wed Nov 30 11:14:54 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 11:16:43 MSK 2022 -- > Begin transaction!
+Wed Nov 30 11:16:43 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=100}, cardToNumber='2222222222222222'}
+Wed Nov 30 11:17:05 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 11:52:47 MSK 2022 -- > Begin transaction!
+Wed Nov 30 11:52:47 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=300}, cardToNumber='2222222222222222'}
+Wed Nov 30 11:52:47 MSK 2022 -- ru.netology.sendmoney.model.operation.OperationId@30034318
+Wed Nov 30 11:52:47 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 11:52:47 MSK 2022 -- >> Begin confirm operation!
+Wed Nov 30 11:52:47 MSK 2022 -- ConfirmOperation{operationId=00d75d1a-c4e3-4d17-a6ef-0ace5a72e982, code=0000}
+Wed Nov 30 11:52:47 MSK 2022 -- >>> Transaction is OK
+Wed Nov 30 11:52:47 MSK 2022 -- >>> From Card{cardNumber='1111111111111111', balance=69700}
+Wed Nov 30 11:52:47 MSK 2022 -- >>> To Card{cardNumber='2222222222222222', balance=130000}
+Wed Nov 30 11:54:23 MSK 2022 -- > Begin transaction!
+Wed Nov 30 11:54:23 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, comission=100}, cardToNumber='2222222222222222'}
+Wed Nov 30 11:54:23 MSK 2022 -- ru.netology.sendmoney.model.operation.OperationId@74ad00a8
+Wed Nov 30 11:54:23 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 11:54:23 MSK 2022 -- >> Begin confirm operation!
+Wed Nov 30 11:54:23 MSK 2022 -- ConfirmOperation{operationId=c9d72eb1-28b7-4cbd-a495-f9f1147c5aa0, code=0000}
+Wed Nov 30 11:54:23 MSK 2022 -- >>> Transaction is OK
+Wed Nov 30 11:54:23 MSK 2022 -- >>> From Card{cardNumber='1111111111111111', balance=59600}
+Wed Nov 30 11:54:23 MSK 2022 -- >>> To Card{cardNumber='2222222222222222', balance=140000}

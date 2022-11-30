@@ -1,4 +1,4 @@
-package ru.netology.sendmoney.model;
+package ru.netology.sendmoney.model.operation;
 
 public class ConfirmOperation {
     private String operationId;

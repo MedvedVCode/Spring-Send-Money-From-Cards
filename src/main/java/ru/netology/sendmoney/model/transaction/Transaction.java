@@ -1,4 +1,4 @@
-package ru.netology.sendmoney.model;
+package ru.netology.sendmoney.model.transaction;
 
 import java.util.Objects;
 
@@ -9,6 +9,7 @@ public class Transaction {
     private String cardFromValidTill;
     private Amount amount;
     private String cardToNumber;
+    private String code;
 
     public String getCardToNumber() {
         return cardToNumber;
@@ -39,6 +40,14 @@ public class Transaction {
 
     public Amount getAmount() {
         return amount;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override

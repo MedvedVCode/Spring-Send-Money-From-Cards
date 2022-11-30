@@ -1,38 +1,37 @@
 package ru.netology.sendmoney.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.netology.sendmoney.model.ConfirmOperation;
-import ru.netology.sendmoney.model.Transaction;
+import ru.netology.sendmoney.logger.LoggerTransaction;
+import ru.netology.sendmoney.model.operation.ConfirmOperation;
+import ru.netology.sendmoney.model.operation.OperationId;
+import ru.netology.sendmoney.model.transaction.Transaction;
 import ru.netology.sendmoney.service.ConfirmService;
-import ru.netology.sendmoney.service.TransferService;
-
+import ru.netology.sendmoney.service.CheckTransferService;
 
 @RestController()
 @RequestMapping("/")
 public class GetDataFromClientController {
-    private TransferService transferService;
+    private CheckTransferService checkTransferService;
     private ConfirmService confirmService;
-    private static Logger logger = LoggerFactory.getLogger(GetDataFromClientController.class);
+    private static LoggerTransaction logger = LoggerTransaction.getLogger();
 
-    public GetDataFromClientController(TransferService transferService, ConfirmService confirmService) {
-        this.transferService = transferService;
+    public GetDataFromClientController(CheckTransferService checkTransferService, ConfirmService confirmService) {
+        this.checkTransferService = checkTransferService;
         this.confirmService = confirmService;
     }
 
     @CrossOrigin
     @PostMapping("transfer")
-    private ResponseEntity<ConfirmOperation> checkAndDoTransfer(@RequestBody Transaction transaction) {
-        logger.info("Start to check & do operation between cards: " + transaction);
-        return ResponseEntity.ok(transferService.doTransaction(transaction));
+    private ResponseEntity<OperationId> checkAndDoTransfer(@RequestBody Transaction transaction) {
+        logger.log(">>> Begin transaction!");
+        return ResponseEntity.ok(checkTransferService.checkCardBalance(transaction));
     }
 
     @CrossOrigin
     @PostMapping("confirmOperation")
     private ResponseEntity<ConfirmOperation> checkConfirmOperation(@RequestBody ConfirmOperation confirmOperation) {
-        logger.info("Rabotaet confirm " + confirmOperation);
+        logger.log("Begin confirm operation!");
         return ResponseEntity.ok(confirmService.checkConfirmOperation(confirmOperation));
     }
 }
