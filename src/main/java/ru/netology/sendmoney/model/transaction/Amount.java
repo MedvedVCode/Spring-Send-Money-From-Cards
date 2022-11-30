@@ -8,23 +8,25 @@ public class Amount {
         return "Amount{" +
                 "currency='" + currency + '\'' +
                 ", value=" + value +
-                ", comission=" + comission +
+                ", commission=" + commission +
                 '}';
     }
 
     private String currency;
     private int value;
-    private int comissionPercent;
-    private int comission;
+    private int commissionPercent;
+    private int commission;
 
     public Amount() {
     }
-    public void setComissionPercent(int comissionPercent) {
-        this.comissionPercent = comissionPercent;
-        this.comission = value*comissionPercent/100;
+
+    public void setCommissionPercent(int commissionPercent) {
+        this.commissionPercent = commissionPercent;
+        this.commission = value * this.commissionPercent / 100;
     }
-    public int getComission() {
-        return comission;
+
+    public int getCommission() {
+        return commission;
     }
 
     public Amount(String currency, int value) {
@@ -38,10 +40,6 @@ public class Amount {
 
     public int getValue() {
         return value;
-    }
-
-    public int getComissionPercent() {
-        return comissionPercent;
     }
 
     @Override

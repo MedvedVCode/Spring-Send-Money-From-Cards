@@ -2,11 +2,7 @@ package ru.netology.sendmoney.model.operation;
 
 public class ConfirmOperation {
     private String operationId;
-    private String code = "1111";
-
-    public ConfirmOperation(String operationId) {
-        this.operationId = operationId;
-    }
+    private String code;
 
     public ConfirmOperation() {
     }
