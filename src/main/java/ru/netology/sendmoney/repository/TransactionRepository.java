@@ -1,24 +1,24 @@
 package ru.netology.sendmoney.repository;
 
 import org.springframework.stereotype.Repository;
-import ru.netology.sendmoney.model.operation.OperationId;
-import ru.netology.sendmoney.model.transaction.Transaction;
+import ru.netology.sendmoney.model.transaction.TransactionInfo;
 
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+
 @Repository
 public class TransactionRepository {
-    private ConcurrentHashMap<String, Transaction> transactionRepository;
+    private ConcurrentHashMap<String, TransactionInfo> transactionRepository;
 
     public TransactionRepository() {
         this.transactionRepository = new ConcurrentHashMap<>();
     }
 
-    public Optional<Transaction> getTransactionByOperationId(String operationId) {
+    public Optional<TransactionInfo> getTransactionByOperationId(String operationId) {
         return Optional.ofNullable(transactionRepository.getOrDefault(operationId, null));
     }
 
-    public void addTransaction(String operationId, Transaction transaction){
+    public void addTransaction(String operationId, TransactionInfo transaction) {
         transactionRepository.put(operationId, transaction);
     }
 }

@@ -54,3 +54,62 @@ Wed Nov 30 11:54:23 MSK 2022 -- ConfirmOperation{operationId=c9d72eb1-28b7-4cbd-
 Wed Nov 30 11:54:23 MSK 2022 -- >>> Transaction is OK
 Wed Nov 30 11:54:23 MSK 2022 -- >>> From Card{cardNumber='1111111111111111', balance=59600}
 Wed Nov 30 11:54:23 MSK 2022 -- >>> To Card{cardNumber='2222222222222222', balance=140000}
+Wed Nov 30 12:36:17 MSK 2022 -- >>> Begin transaction!
+Wed Nov 30 12:36:17 MSK 2022 -- Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=30000, comission=300}, cardToNumber='2222222222222222'}
+Wed Nov 30 12:36:17 MSK 2022 -- OperationId{operationId='a0617227-761d-41ef-a5d2-69a3999e33e3'}
+Wed Nov 30 12:36:17 MSK 2022 -- Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 12:36:17 MSK 2022 -- Begin confirm operation!
+Wed Nov 30 12:36:17 MSK 2022 -- ConfirmOperation{operationId=a0617227-761d-41ef-a5d2-69a3999e33e3, code=0000}
+Wed Nov 30 12:36:17 MSK 2022 -- > Transaction is OK!
+Wed Nov 30 12:36:17 MSK 2022 -- > From Card{cardNumber='1111111111111111', balance=69700}
+Wed Nov 30 12:36:17 MSK 2022 -- > To Card{cardNumber='2222222222222222', balance=130000}
+Wed Nov 30 13:26:49 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:26:49 MSK 2022 --   Transaction{cardFromNumber='2222222222222222', cardFromCVV='222', cardFromValidTill='02/25', amount=Amount{currency='RUR', value=30000, commission=300}, cardToNumber='1111111111111111'}
+Wed Nov 30 13:26:49 MSK 2022 --   OperationId{operationId='b084f947-cf6e-4e89-95b5-4a89d42de8de'}
+Wed Nov 30 13:26:49 MSK 2022 --   Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 13:26:49 MSK 2022 -- > Begin confirm operation!
+Wed Nov 30 13:26:49 MSK 2022 --   ConfirmOperation{operationId=b084f947-cf6e-4e89-95b5-4a89d42de8de, code=0000}
+Wed Nov 30 13:26:49 MSK 2022 -- > Transaction is OK!
+Wed Nov 30 13:26:49 MSK 2022 -- > From Card{cardNumber='2222222222222222', balance=69700}
+Wed Nov 30 13:26:49 MSK 2022 -- > To Card{cardNumber='1111111111111111', balance=130000}
+Wed Nov 30 13:28:02 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:28:02 MSK 2022 --   Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=20000, commission=200}, cardToNumber='2222222222222222'}
+Wed Nov 30 13:28:02 MSK 2022 --   OperationId{operationId='980144a1-14df-439c-b1a1-8555bc82af7d'}
+Wed Nov 30 13:28:02 MSK 2022 --   Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 13:28:02 MSK 2022 -- > Begin confirm operation!
+Wed Nov 30 13:28:02 MSK 2022 --   ConfirmOperation{operationId=980144a1-14df-439c-b1a1-8555bc82af7d, code=0000}
+Wed Nov 30 13:28:02 MSK 2022 -- > Transaction is OK!
+Wed Nov 30 13:28:02 MSK 2022 -- > From Card{cardNumber='1111111111111111', balance=109800}
+Wed Nov 30 13:28:02 MSK 2022 -- > To Card{cardNumber='2222222222222222', balance=89700}
+Wed Nov 30 13:29:26 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:29:26 MSK 2022 --   Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000000, commission=100000}, cardToNumber='2222222222222222'}
+Wed Nov 30 13:29:26 MSK 2022 -- > Transaction failed. Not enough money on balance 1111111111111111
+
+Wed Nov 30 13:30:06 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:30:06 MSK 2022 --   Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, commission=100}, cardToNumber='2222222222222223'}
+Wed Nov 30 13:30:06 MSK 2022 -- > Transaction failed. No card 2222222222222223
+
+Wed Nov 30 13:30:15 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:30:15 MSK 2022 --   Transaction{cardFromNumber='1111111111111112', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, commission=100}, cardToNumber='2222222222222222'}
+Wed Nov 30 13:30:15 MSK 2022 -- > Transaction failed. No card 1111111111111112
+
+Wed Nov 30 13:33:16 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:33:16 MSK 2022 --   Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, commission=100}, cardToNumber='2222222222222222'}
+Wed Nov 30 13:33:16 MSK 2022 --   OperationId{operationId='0b5740c9-e4ee-49c4-a56b-b31e23bdcee6'}
+Wed Nov 30 13:33:16 MSK 2022 --   Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 13:33:16 MSK 2022 -- > Begin confirm operation!
+Wed Nov 30 13:33:16 MSK 2022 --   ConfirmOperation{operationId=0b5740c9-e4ee-49c4-a56b-b31e23bdcee6, code=0000}
+Wed Nov 30 13:33:16 MSK 2022 --  > Transaction is OK!
+Wed Nov 30 13:33:16 MSK 2022 --  > From Card{cardNumber='1111111111111111', balance=89900}
+Wed Nov 30 13:33:16 MSK 2022 --  > To Card{cardNumber='2222222222222222', balance=110000}
+
+Wed Nov 30 13:34:04 MSK 2022 -- > Begin transaction!
+Wed Nov 30 13:34:04 MSK 2022 --   Transaction{cardFromNumber='2222222222222222', cardFromCVV='222', cardFromValidTill='02/25', amount=Amount{currency='RUR', value=20000, commission=200}, cardToNumber='1111111111111111'}
+Wed Nov 30 13:34:04 MSK 2022 --   OperationId{operationId='95075947-824a-43dc-8641-37db7a4c8ef0'}
+Wed Nov 30 13:34:04 MSK 2022 --   Transaction is possible! Money blocked! Waiting for confirmation!
+Wed Nov 30 13:34:04 MSK 2022 -- > Begin confirm operation!
+Wed Nov 30 13:34:04 MSK 2022 --   ConfirmOperation{operationId=95075947-824a-43dc-8641-37db7a4c8ef0, code=0000}
+Wed Nov 30 13:34:04 MSK 2022 --  > Transaction is OK!
+Wed Nov 30 13:34:04 MSK 2022 --  > From Card{cardNumber='2222222222222222', balance=89800}
+Wed Nov 30 13:34:04 MSK 2022 --  > To Card{cardNumber='1111111111111111', balance=109900}
+
