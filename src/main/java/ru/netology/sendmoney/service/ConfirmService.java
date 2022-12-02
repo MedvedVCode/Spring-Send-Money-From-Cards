@@ -28,7 +28,7 @@ public class ConfirmService {
         return confirmOperation;
     }
 
-    private void doTransaction(TransactionInfo transactionInfo) {
+    public void doTransaction(TransactionInfo transactionInfo) {
         var cardFrom = transactionInfo.getCardFrom();
         var cardTo = transactionInfo.getCardTo();
         cardTo.getBalance().accumulateAndGet(transactionInfo.getValue(), (x, y) -> x + y);
@@ -37,7 +37,7 @@ public class ConfirmService {
         logger.log(String.format(" > To %s\n", cardTo));
     }
 
-    private boolean checkCodeOperation(ConfirmOperation confirmOperation, TransactionInfo transactionInfo) {
+    public boolean checkCodeOperation(ConfirmOperation confirmOperation, TransactionInfo transactionInfo) {
         if (!transactionInfo.getCode().equals(confirmOperation.getCode())) {
             logger.log("> Transaction failed! Error customer message confirmation code\n");
             doRollBackTransaction(transactionInfo);
@@ -46,14 +46,14 @@ public class ConfirmService {
         return true;
     }
 
-    private void doRollBackTransaction(TransactionInfo transactionInfo) {
+    public void doRollBackTransaction(TransactionInfo transactionInfo) {
         var cardFrom = transactionInfo.getCardFrom();
         cardFrom.getBalance().accumulateAndGet(
                 transactionInfo.getValue() + transactionInfo.getCommission(),
                 (x, y) -> x + y);
     }
 
-    private TransactionInfo getTransactionFromConfirmOperation(ConfirmOperation confirmOperation) {
+    public TransactionInfo getTransactionFromConfirmOperation(ConfirmOperation confirmOperation) {
 
         var transactionOptional = transactionRepository
                 .getTransactionByOperationId(confirmOperation.getOperationId());
