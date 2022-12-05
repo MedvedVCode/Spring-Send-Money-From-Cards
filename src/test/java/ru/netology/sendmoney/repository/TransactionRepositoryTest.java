@@ -3,6 +3,7 @@ package ru.netology.sendmoney.repository;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.netology.sendmoney.model.Card;
 import ru.netology.sendmoney.model.transaction.TransactionInfo;

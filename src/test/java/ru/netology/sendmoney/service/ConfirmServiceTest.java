@@ -1,35 +1,33 @@
 package ru.netology.sendmoney.service;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import ru.netology.sendmoney.model.Card;
 import ru.netology.sendmoney.model.operation.ConfirmOperation;
 import ru.netology.sendmoney.model.transaction.TransactionInfo;
 import ru.netology.sendmoney.repository.TransactionRepository;
-import ru.netology.sendmoney.service.ConfirmService;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class ConfirmServiceTest {
-
-    public TransactionRepository transactionRepository;
+    @InjectMocks
     public ConfirmService confirmService;
+    @Mock
+    public TransactionRepository transactionRepository;
     public ConfirmOperation confirmTrue;
     public ConfirmOperation confirmFalse;
 
-    @BeforeEach
+    @Before
     public void init() {
-        transactionRepository = Mockito.mock(TransactionRepository.class);
-        Mockito.when(transactionRepository.getTransactionByOperationId("123456"))
+        //MockitoAnnotations.initMocks(this);
+        //transactionRepository = Mockito.mock(TransactionRepository.class);
+        when(transactionRepository.getTransactionByOperationId("123456"))
                 .thenReturn(Optional.of(new TransactionInfo(
                                 new Card("1234567890", "999", "01/25", 100000),
                                 new Card("0987654321", "111", "02/25", 100000),
@@ -63,7 +61,7 @@ public class ConfirmServiceTest {
         assertEquals(result, transactionRepository.getTransactionByOperationId(confirmTrue.getOperationId()));
     }
 
-    @AfterEach
+    @After
     public void finalized() {
         transactionRepository = null;
         confirmService = null;
