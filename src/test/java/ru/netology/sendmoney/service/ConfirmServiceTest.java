@@ -1,9 +1,14 @@
-package ru.netology.sendmoney;
+package ru.netology.sendmoney.service;
 
 import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import ru.netology.sendmoney.model.Card;
 import ru.netology.sendmoney.model.operation.ConfirmOperation;
 import ru.netology.sendmoney.model.transaction.TransactionInfo;
@@ -15,7 +20,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConfirmServiceTest {
-    public static TransactionRepository transactionRepository;
+
+    public TransactionRepository transactionRepository;
     public ConfirmService confirmService;
     public ConfirmOperation confirmTrue;
     public ConfirmOperation confirmFalse;
@@ -48,16 +54,16 @@ public class ConfirmServiceTest {
     public void checkConfirmOperationOkTest() {
 
         ConfirmOperation result = confirmService.checkConfirmOperation(confirmTrue);
-        assertEquals(result,confirmTrue);
+        assertEquals(result, confirmTrue);
     }
 
     @Test
-    public void getTransactionFromConfirmOperationTest(){
+    public void getTransactionFromConfirmOperationTest() {
         TransactionInfo result = confirmService.getTransactionFromConfirmOperation(confirmTrue);
         assertEquals(result, transactionRepository.getTransactionByOperationId(confirmTrue.getOperationId()));
     }
 
-    @AfterAll
+    @AfterEach
     public void finalized() {
         transactionRepository = null;
         confirmService = null;
