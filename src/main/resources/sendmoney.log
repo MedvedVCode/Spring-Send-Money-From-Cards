@@ -113,3 +113,42 @@ Wed Nov 30 13:34:04 MSK 2022 --  > Transaction is OK!
 Wed Nov 30 13:34:04 MSK 2022 --  > From Card{cardNumber='2222222222222222', balance=89800}
 Wed Nov 30 13:34:04 MSK 2022 --  > To Card{cardNumber='1111111111111111', balance=109900}
 
+Thu Dec 08 13:26:04 MSK 2022 -- > Begin transaction!
+Thu Dec 08 13:26:04 MSK 2022 --   Transaction{cardFromNumber='1111111111111111', cardFromCVV='111', cardFromValidTill='01/25', amount=Amount{currency='RUR', value=10000, commission=100}, cardToNumber='2222222222222222'}
+Thu Dec 08 13:26:04 MSK 2022 --   OperationId{operationId='7e2e7aac-dad1-4881-b193-9542355d1c5d'}
+Thu Dec 08 13:26:04 MSK 2022 --   Transaction is possible! Money blocked! Waiting for confirmation!
+Thu Dec 08 13:26:04 MSK 2022 -- > Begin confirm operation!
+Thu Dec 08 13:26:04 MSK 2022 --   ConfirmOperation{operationId=7e2e7aac-dad1-4881-b193-9542355d1c5d, code=0000}
+Thu Dec 08 13:26:04 MSK 2022 --  > Transaction is OK!
+Thu Dec 08 13:26:04 MSK 2022 --  > From Card{cardNumber='1111111111111111', balance=89900}
+Thu Dec 08 13:26:04 MSK 2022 --  > To Card{cardNumber='2222222222222222', balance=110000}
+
+Thu Dec 08 17:12:27 MSK 2022 -- > Transaction failed! Error input data in confirm code
+
+Thu Dec 08 17:15:42 MSK 2022 -- > Transaction failed! Error input data in confirm code
+
+Thu Dec 08 17:17:09 MSK 2022 -- > Transaction failed! Error input data in confirm code
+
+Wed Dec 14 21:21:00 MSK 2022 --   ConfirmOperation{operationId=123456, code=0000}
+Wed Dec 14 21:21:00 MSK 2022 -- > Transaction failed! Error input data in confirm code
+
+Wed Dec 14 21:21:33 MSK 2022 --   ConfirmOperation{operationId=123456, code=0000}
+Wed Dec 14 21:21:34 MSK 2022 -- > Transaction failed! Error input data in confirm code
+
+Wed Dec 14 21:22:33 MSK 2022 --   ConfirmOperation{operationId=123456, code=0000}
+Wed Dec 14 21:22:33 MSK 2022 -- > Transaction failed! Error input data in confirm code
+
+Wed Dec 14 21:22:55 MSK 2022 --   ConfirmOperation{operationId=123456, code=0000}
+Wed Dec 14 21:22:55 MSK 2022 --  > Transaction is OK!
+Wed Dec 14 21:22:55 MSK 2022 --  > From Card{cardNumber='1111', balance=100000}
+Wed Dec 14 21:22:55 MSK 2022 --  > To Card{cardNumber='2222', balance=120000}
+
+Thu Dec 15 12:53:15 MSK 2022 --  > Transaction failed. Not enough money on balance 1111
+
+Thu Dec 15 13:00:38 MSK 2022 --  > Transaction failed. Not enough money on balance 1111
+
+Thu Dec 15 13:01:15 MSK 2022 --   ConfirmOperation{operationId=123456, code=0000}
+Thu Dec 15 13:01:15 MSK 2022 --  > Transaction is OK!
+Thu Dec 15 13:01:15 MSK 2022 --  > From Card{cardNumber='1111', balance=100000}
+Thu Dec 15 13:01:15 MSK 2022 --  > To Card{cardNumber='2222', balance=120000}
+

@@ -1,10 +1,13 @@
 package ru.netology.sendmoney.service;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import ru.netology.sendmoney.exceptions.InvalidDataFromClientException;
 import ru.netology.sendmoney.model.Card;
 import ru.netology.sendmoney.model.operation.ConfirmOperation;
 import ru.netology.sendmoney.model.transaction.TransactionInfo;
@@ -13,59 +16,101 @@ import ru.netology.sendmoney.repository.TransactionRepository;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 
-public class ConfirmServiceTest {
+@ExtendWith(MockitoExtension.class)
+class ConfirmServiceTest {
     @InjectMocks
-    public ConfirmService confirmService;
+    private ConfirmService confirmService;
     @Mock
-    public TransactionRepository transactionRepository;
-    public ConfirmOperation confirmTrue;
-    public ConfirmOperation confirmFalse;
+    private TransactionRepository transactionRepository;
+    private Card cardFrom = new Card("1111", "111", "01/25", 100000);
+    private Card cardTo = new Card("2222", "222", "02/25", 100000);
+    private TransactionInfo transactionInfo;
+    private ConfirmOperation confirmOperation;
 
-    @Before
+    @BeforeEach
     public void init() {
-        //MockitoAnnotations.initMocks(this);
-        //transactionRepository = Mockito.mock(TransactionRepository.class);
-        when(transactionRepository.getTransactionByOperationId("123456"))
-                .thenReturn(Optional.of(new TransactionInfo(
-                                new Card("1234567890", "999", "01/25", 100000),
-                                new Card("0987654321", "111", "02/25", 100000),
-                                10000,
-                                1000,
-                                "0000"
-                        ))
-                );
-
-        confirmTrue = new ConfirmOperation();
-        confirmTrue.setOperationId("123456");
-        confirmTrue.setCode("0000");
-
-        confirmFalse = new ConfirmOperation();
-        confirmFalse.setOperationId("654321");
-        confirmFalse.setCode("1111");
+        confirmOperation = new ConfirmOperation();
+        transactionInfo = new TransactionInfo(cardFrom,
+                cardTo,
+                20000,
+                200,
+                "0000");
 
         confirmService = new ConfirmService(transactionRepository);
     }
 
     @Test
-    public void checkConfirmOperationOkTest() {
-
-        ConfirmOperation result = confirmService.checkConfirmOperation(confirmTrue);
-        assertEquals(result, confirmTrue);
+    void checkConfirmOperation() {
+        confirmOperation.setCode("0000");
+        confirmOperation.setOperationId("123456");
+        when(transactionRepository.getTransactionByOperationId("123456"))
+                .thenReturn(Optional.of(
+                        new TransactionInfo(
+                                new Card("1111", "111", "01/25", 100000),
+                                new Card("2222", "222", "02/25", 100000),
+                                20000, 200, "0000"
+                        )
+                ));
+        var result = confirmService.checkConfirmOperation(confirmOperation);
+        assertEquals(result,confirmOperation);
     }
 
     @Test
-    public void getTransactionFromConfirmOperationTest() {
-        TransactionInfo result = confirmService.getTransactionFromConfirmOperation(confirmTrue);
-        assertEquals(result, transactionRepository.getTransactionByOperationId(confirmTrue.getOperationId()));
+    void doTransaction() {
+        var confirmMock = mock(ConfirmService.class);
+        doNothing().when(confirmMock).doTransaction(transactionInfo);
+        confirmMock.doTransaction(transactionInfo);
+        verify(confirmMock, times(1)).doTransaction(transactionInfo);
     }
 
-    @After
-    public void finalized() {
-        transactionRepository = null;
+    @Test
+    void checkCodeOperationOk() {
+        confirmOperation.setCode("0000");
+        confirmOperation.setOperationId("123456");
+        var result = confirmService.checkCodeOperation(confirmOperation,transactionInfo);
+        assertEquals(true, result);
+    }
+
+    @Test
+    void doRollBackTransaction() {
+        var confirmMock = mock(ConfirmService.class);
+        doNothing().when(confirmMock).doRollBackTransaction(isA(TransactionInfo.class));
+        confirmMock.doRollBackTransaction(transactionInfo);
+        verify(confirmMock, times(1)).doRollBackTransaction(transactionInfo);
+    }
+
+    @Test
+    void getTransactionFromConfirmOperationTestOK() {
+        when(transactionRepository.getTransactionByOperationId("123456"))
+                .thenReturn(Optional.of(
+                        new TransactionInfo(
+                                new Card("1111", "111", "01/25", 100000),
+                                new Card("2222", "222", "02/25", 100000),
+                                20000, 200, "0000"
+                        )
+                ));
+        confirmOperation.setCode("0000");
+        confirmOperation.setOperationId("123456");
+        var result = confirmService.getTransactionFromConfirmOperation(confirmOperation);
+        assertEquals(result, transactionInfo);
+    }
+
+    @Test
+    void getTransactionFromConfirmOperationTestThrow() {
+        when(transactionRepository.getTransactionByOperationId("121212"))
+                .thenThrow(new InvalidDataFromClientException("Error input data in confirm code"));
+        confirmOperation.setOperationId("121212");
+        confirmOperation.setCode("0000");
+        assertThrows(InvalidDataFromClientException.class, () -> confirmService.getTransactionFromConfirmOperation(confirmOperation));
+    }
+
+    @AfterEach
+    public void finished() {
         confirmService = null;
-        confirmTrue = null;
-        confirmFalse = null;
+        transactionRepository = null;
+        confirmOperation = null;
     }
 }

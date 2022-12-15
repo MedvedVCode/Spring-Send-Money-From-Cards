@@ -39,7 +39,7 @@ public class TransferService {
         return addTransactionRepository(cardFrom, cardTo, transaction.getAmount());
     }
 
-    private OperationId addTransactionRepository(Card cardFrom, Card cardTo, Amount amount) {
+    public OperationId addTransactionRepository(Card cardFrom, Card cardTo, Amount amount) {
         var operation = new OperationId();
         var transactionInfo = new TransactionInfo(
                 cardFrom,
@@ -54,7 +54,7 @@ public class TransferService {
         return operation;
     }
 
-    private boolean checkAndBlockCardBalance(Card cardFrom, Amount amount) {
+    public boolean checkAndBlockCardBalance(Card cardFrom, Amount amount) {
         cardFrom.getBalance().accumulateAndGet(
                 amount.getValue() + amount.getCommission(),
                 (x, y) ->
@@ -69,7 +69,7 @@ public class TransferService {
         return true;
     }
 
-    private Card getCardFrom(String cardFromNumber, String cardFromCVV, String cardFromValidTill) {
+    public Card getCardFrom(String cardFromNumber, String cardFromCVV, String cardFromValidTill) {
         Optional<Card> optionalCard = cardsRepository.getCardByAllData(cardFromNumber, cardFromCVV, cardFromValidTill);
         if (optionalCard.isEmpty()) {
             logger.log(String.format(" > Transaction failed. No card %s\n", cardFromNumber));
@@ -78,7 +78,7 @@ public class TransferService {
         return optionalCard.get();
     }
 
-    private Card getCardTo(String cardNumber) {
+    public Card getCardTo(String cardNumber) {
         Optional<Card> optionalCard = cardsRepository.getCardByNumber(cardNumber);
         if (optionalCard.isEmpty()) {
             logger.log(String.format(" > Transaction failed. No card %s\n", cardNumber));

@@ -2,6 +2,8 @@ package ru.netology.sendmoney.model.transaction;
 
 import ru.netology.sendmoney.model.Card;
 
+import java.util.Objects;
+
 public class TransactionInfo {
     private Card cardFrom;
     private Card cardTo;
@@ -55,5 +57,18 @@ public class TransactionInfo {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TransactionInfo that = (TransactionInfo) o;
+        return getValue() == that.getValue() && getCommission() == that.getCommission() && Objects.equals(getCardFrom(), that.getCardFrom()) && Objects.equals(getCardTo(), that.getCardTo()) && Objects.equals(getCode(), that.getCode());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCardFrom(), getCardTo(), getValue(), getCommission(), getCode());
     }
 }

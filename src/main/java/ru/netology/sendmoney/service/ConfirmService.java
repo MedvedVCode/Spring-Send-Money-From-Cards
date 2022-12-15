@@ -54,7 +54,6 @@ public class ConfirmService {
     }
 
     public TransactionInfo getTransactionFromConfirmOperation(ConfirmOperation confirmOperation) {
-
         var transactionOptional = transactionRepository
                 .getTransactionByOperationId(confirmOperation.getOperationId());
         if (transactionOptional.isEmpty()) {
