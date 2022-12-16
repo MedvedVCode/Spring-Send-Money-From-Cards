@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    image: 'send_money_backend'
+    ports:
+      - '5500:5500'
+  client:
+    image: 'send-money'
+    ports:
+      - '9000:3000'

@@ -152,3 +152,10 @@ Thu Dec 15 13:01:15 MSK 2022 --  > Transaction is OK!
 Thu Dec 15 13:01:15 MSK 2022 --  > From Card{cardNumber='1111', balance=100000}
 Thu Dec 15 13:01:15 MSK 2022 --  > To Card{cardNumber='2222', balance=120000}
 
+Thu Dec 15 14:15:32 MSK 2022 --   ConfirmOperation{operationId=123456, code=0000}
+Thu Dec 15 14:15:32 MSK 2022 --  > Transaction is OK!
+Thu Dec 15 14:15:32 MSK 2022 --  > From Card{cardNumber='1111', balance=100000}
+Thu Dec 15 14:15:32 MSK 2022 --  > To Card{cardNumber='2222', balance=120000}
+
+Thu Dec 15 14:15:32 MSK 2022 --  > Transaction failed. Not enough money on balance 1111
+
